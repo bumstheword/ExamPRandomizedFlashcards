@@ -21,6 +21,7 @@ inputpdf = PdfFileReader(open("C:/Users/Rochester/Desktop/ExamPFlashcards.pdf", 
 section = random.sample(range(len(STARTPAGE)),1)[0]
 #calculate length of section
 section_length = (ENDPAGE[section] - STARTPAGE[section] + 1)
-
+cards = random.sample(list(range(STARTPAGE[section], ENDPAGE[section], 2)), random.sample(list(range(0,int(section_length/2))),1)[0])
 print(section)
 print(STARTPAGE[section], ENDPAGE[section], section_length)
+print(cards)
