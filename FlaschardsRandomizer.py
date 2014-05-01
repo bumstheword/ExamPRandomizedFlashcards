@@ -32,17 +32,18 @@ def ChooseCards(sections = [0]):
     for i in cards:
         final += [i]
         final += [i + 1]
-    print(final)
+    return(final)
 
 
-#inputpdf = PdfFileReader(open("C:/Users/Rochester/Desktop/ExamPFlashcards.pdf", "rb"))
 
-
-#choose a random number between 0 and length of STARTPAGE, which corresponds to section
-section = random.sample(range(len(STARTPAGE)),1)[0]
-#calculate length of section
-section_length = (ENDPAGE[section] - STARTPAGE[section] + 1)
-cards = random.sample(list(range(STARTPAGE[section], ENDPAGE[section] + 1, 2)), random.sample(list(range(1, int(section_length/2) + 1)),1)[0])
-
-ChooseCards()
-
+# Read in the ordered card PDF
+inputpdf = PdfFileReader(open("/Users/michaelgoulet/Desktop/ExamPFlashcards.pdf", "rb"))
+output = PdfFileWriter()
+cards = ChooseCards()
+# Build the randomized card PDF
+for i in cards:
+    output.addPage(inputpdf.getPage(i - 1))
+#Create and write the file
+outputStream = open("/Users/michaelgoulet/Desktop/TESTING.pdf", "wb")
+output.write(outputStream)
+outputStream.close()
