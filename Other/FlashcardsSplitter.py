@@ -1,10 +1,6 @@
 """
-Coaching Actuaries
 Exam P Mobile Flashcards Randomization Program
 
-Michael Goulet
-Profile Insurance Group
-goulet.michaelrobert@gmail.com
 """
 
 from PyPDF2 import PdfFileWriter, PdfFileReader
