@@ -35,13 +35,13 @@ def ChooseCards(sections = [0]):
 
 
 # Read in the ordered card PDF
-inputpdf = PdfFileReader(open("/Users/michaelgoulet/Desktop/ExamPFlashcards.pdf", "rb"))
+inputpdf = PdfFileReader(open("/Users/bumstheword/Desktop/ExamPFlashcards.pdf", "rb"))
 output = PdfFileWriter()
 cards = ChooseCards()
 # Build the randomized card PDF
 for i in cards:
     output.addPage(inputpdf.getPage(i - 1))
 #Create and write the file
-outputStream = open("/Users/michaelgoulet/Desktop/TESTING.pdf", "wb")
+outputStream = open("/Users/bumstheword/Desktop/TESTING.pdf", "wb")
 output.write(outputStream)
 outputStream.close()
