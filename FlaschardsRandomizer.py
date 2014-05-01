@@ -23,8 +23,8 @@ def ChooseCards(sections = [0]):
 
     # Creates card pool from the passed sections array.
     for i in sections:
-        section_lengths += [ENDPAGE[sections[i]] - STARTPAGE[sections[i]] + 1]
-        card_pool += list(range(STARTPAGE[sections[i]], ENDPAGE[sections[i]] + 1))
+        # section_lengths += [ENDPAGE[sections[i]] - STARTPAGE[sections[i]] + 1]
+        card_pool += list(range(STARTPAGE[i], ENDPAGE[i] + 1))
 
     # Samples from only the odd cards in the card pool and stores results of the sample.
     cards = random.sample(card_pool[0:len(card_pool):2], int(len(card_pool)/2))
@@ -39,7 +39,7 @@ def ChooseCards(sections = [0]):
 # Read in the ordered card PDF
 inputpdf = PdfFileReader(open("/Users/michaelgoulet/Desktop/ExamPFlashcards.pdf", "rb"))
 output = PdfFileWriter()
-cards = ChooseCards()
+cards = ChooseCards([0,1,5])
 # Build the randomized card PDF
 for i in cards:
     output.addPage(inputpdf.getPage(i - 1))
