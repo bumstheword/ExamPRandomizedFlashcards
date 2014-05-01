@@ -1,5 +1,4 @@
-# Coaching Actuaries Exam P Flashcards
-### Randomized Quizzing 
+# Randomized Quizzing 
 
 ## Introduction
 
