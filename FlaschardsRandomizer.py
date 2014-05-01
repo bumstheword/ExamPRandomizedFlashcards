@@ -29,6 +29,7 @@ def ChooseCards(sections = [0]):
     # Samples from only the odd cards in the card pool and stores results of the sample.
     cards = random.sample(card_pool[0:len(card_pool):2], int(len(card_pool)/2))
 
+    # Combines the odd cards with corresponding even cards
     for i in cards:
         final += [i]
         final += [i + 1]
@@ -39,7 +40,7 @@ def ChooseCards(sections = [0]):
 # Read in the ordered card PDF
 inputpdf = PdfFileReader(open("/Users/michaelgoulet/Desktop/ExamPFlashcards.pdf", "rb"))
 output = PdfFileWriter()
-cards = ChooseCards([0,1,5])
+cards = ChooseCards()
 # Build the randomized card PDF
 for i in cards:
     output.addPage(inputpdf.getPage(i - 1))
